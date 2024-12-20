@@ -1,0 +1,30 @@
+.cast-section {
+    margin-top: 30px;
+  }
+  
+  .cast-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .cast-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+  
+  .cast-card {
+    text-align: center;
+  }
+  
+  .cast-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .cast-card p {
+    font-size: 14px;
+    color: #fff;
+  }
