@@ -8,16 +8,16 @@ const Searchedmovie = () => {
   const Image_Url = 'https://image.tmdb.org/t/p/w500';
   
   const [state, updatestate] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [noResults, setNoResults] = useState(false);
-  
+  const [searchQuery, setSearchQuery] = useState(''); // New state for search query
+  const [loading, setLoading] = useState(false); // To handle loading state
+  const [noResults, setNoResults] = useState(false); // To handle no results state
+
   const route = useNavigate();
   const { movie_name } = useParams();
 
   const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-    setNoResults(false); // Reset the no results state when user types.
+    setSearchQuery(e.target.value); // Update search query
+    setNoResults(false); // Reset the no results flag when user types
   };
 
   const handleSearchSubmit = async () => {
@@ -42,7 +42,7 @@ const Searchedmovie = () => {
 
   // Fetching data based on the movie name from the URL params
   useEffect(() => {
-    if (!movie_name) return;
+    if (!movie_name) return; // If no movie_name in the URL, do nothing
     setLoading(true);
     async function fetchData() {
       try {
@@ -64,22 +64,17 @@ const Searchedmovie = () => {
 
   return (
     <div>
+      {/* Search Bar Section */}
       <div className="search-container">
-        <input
-          type="text"
-          className="search-input"
-          value={searchQuery}
-          onChange={handleSearchChange}
-          placeholder="Search for a movie..."
-        />
-        <button className="search-button" onClick={handleSearchSubmit}>
-          Search
-        </button>
+        
+        
       </div>
 
+      {/* Loading and No Results Message */}
       {loading && <p className="loading-text">Loading...</p>}
       {noResults && <p className="no-results">No results found. Try another search.</p>}
 
+      {/* Movie Results Display */}
       <div className="movie-container">
         {state.map((movies) => (
           <div
