@@ -10,6 +10,9 @@ const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1); 
   const [totalPages, setTotalPages] = useState(0);  
   const navigate = useNavigate();
+  useEffect(()=>{
+    console.log()
+  },[movies])
 
   useEffect(() => {
     fetchMovies(currentPage); 
@@ -50,6 +53,7 @@ const HomePage = () => {
         {movies.map((movie) => (
           <div
             key={movie.id}
+            
             className="movie-card"
             onClick={() => navigate(`/singlemovie/${movie.id}`)}
           >
